@@ -15,6 +15,10 @@ It contains some code and data used to produce the results shown in the paper, a
 The files contained in this repository are listed below:
 
 - [Paper (PDF)](WCTE_2016_Tapia_Aicher_final.pdf)
+- formula_derivation
+    - obtain_coefficients.py
+    - data
+        - ...
 - examples
     - Design_Example_Paper.ipynb
 
@@ -24,6 +28,9 @@ To use the code listed above, the following tools must be installed:
     - numpy
     - sympy
     - jupyter
+    - seaborn
+    - matplotlib
+    - scipy
 
 ### Abstract:
 The usage of holes in glulam and LVL beams is a common practice in timber constructions and requires in many cases the application of reinforcement.
@@ -36,7 +43,22 @@ The design approach was then applied to an example case.
 Experimental verification of the theoretical observations is still necessary and ongoing, though a very promising approach for an improved internal reinforcement and its respective design can already be observed.
 
 ### Corrections:
+1. There were some small notation errors in the original publication, specifically in the equations (5) and (6), where the factor _**w**_ (width of the cross section) was forgotten.
+Nevertheless, for the calculations this factor was indeed used.
+The equation should look like this:
 
+![equation](images/equation_5.png)  
+
+![equation](images/equation_6.png)  
+
+2. When calibrating the coefficients _**c1**_, _**c2**_ and _**c3**_ of Equation (4) the double of the shear force (and thus also the double of the moment) was erroneously considered.
+The Equation (4) is still valid, only the coefficients needed to be recalculated:
+
+| c1 | c2    | c3   |
+|:--:|:-----:|:----:|
+| 1.2| 0.012 | 0.36 |
+
+The example presented in Section 5.1 can be calculated using the jupyter [notebook](examples/Design_Example_Paper.ipynb) present in the [example](examples/README.md) folder
 
 ### Citation:
 Bibtex citation:
