@@ -3,7 +3,6 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import sympy as sy
 import seaborn.apionly as sns
 from scipy.optimize import minimize
 
