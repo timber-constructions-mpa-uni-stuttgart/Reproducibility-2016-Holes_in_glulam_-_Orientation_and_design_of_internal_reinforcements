@@ -55,11 +55,11 @@ The equation should look like this:
 2. When calibrating the coefficients _**c1**_, _**c2**_ and _**c3**_ of Equation (4) the double of the shear force (and thus also the double of the moment) was erroneously considered.
 The Equation (4) is still valid, only the coefficients needed to be recalculated:
 
-| c1 | c2    | c3   |
-|:--:|:-----:|:----:|
-| 1.2| 0.012 | 0.36 |
+    | c1 | c2    | c3   |
+    |:--:|:-----:|:----:|
+    | 1.2| 0.012 | 0.36 |
 
-The example presented in Section 5.1 can be calculated using the jupyter [notebook](examples/Design_Example_Paper.ipynb) present in the [example](examples/README.md) folder
+    The example presented in Section 5.1 can be calculated using the jupyter [notebook](examples/Design_Example_Paper.ipynb) present in the [example](examples/README.md) folder
 
 3. The figure 9c and 3b show the arrows representing the shear forces in the wrong direction.
 
