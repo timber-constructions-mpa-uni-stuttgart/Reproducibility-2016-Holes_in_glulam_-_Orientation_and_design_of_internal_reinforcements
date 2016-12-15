@@ -48,9 +48,9 @@ Experimental verification of the theoretical observations is still necessary and
 Nevertheless, for the calculations this factor was indeed used.
 The equation should look like this:
 
-![equation](images/equation_5.png)  
-
-![equation](images/equation_6.png)  
+    ![equation](images/equation_5.png)  
+    
+    ![equation](images/equation_6.png)  
 
 2. When calibrating the coefficients _**c1**_, _**c2**_ and _**c3**_ of Equation (4) the double of the shear force (and thus also the double of the moment) was erroneously considered.
 The Equation (4) is still valid, only the coefficients needed to be recalculated:
