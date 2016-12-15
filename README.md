@@ -61,6 +61,8 @@ The Equation (4) is still valid, only the coefficients needed to be recalculated
 
 The example presented in Section 5.1 can be calculated using the jupyter [notebook](examples/Design_Example_Paper.ipynb) present in the [example](examples/README.md) folder
 
+3. The figure 9c and 3b show the arrows representing the shear forces in the wrong direction.
+
 ### Citation:
 Bibtex citation:
 ```
