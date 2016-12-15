@@ -15,12 +15,13 @@ It contains some code and data used to produce the results shown in the paper, a
 The files contained in this repository are listed below:
 
 - [Paper (PDF)](WCTE_2016_Tapia_Aicher_final.pdf)
-- formula_derivation
-    - obtain_coefficients.py
+- coefficients_fit
+    - ```obtain_coefficients.py```
     - data
-        - ...
+        - ```Ft_90_hd135_w_100_lA2_lad200_reinf18.dat```
+        - ```...```
 - examples
-    - Design_Example_Paper.ipynb
+    - ```Design_Example_Paper.ipynb```
 
 ### Requirements:
 To use the code listed above, the following tools must be installed:

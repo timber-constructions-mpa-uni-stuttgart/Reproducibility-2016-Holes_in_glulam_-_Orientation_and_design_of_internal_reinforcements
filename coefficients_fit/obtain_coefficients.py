@@ -128,6 +128,11 @@ def obtain_coefficients():
     ax1.set_ylabel('Axial force $F_r$ in the rod [kN]')
     ax1.set_xlabel('rod inclination [degree]')
     ax2.set_xlabel('rod inclination [degree]')
+    # Add some annotations
+    ax1.annotate('Left rod', xy=(0.98,0.02), xycoords='axes fraction',
+                 va='bottom', ha='right')
+    ax2.annotate('Right rod', xy=(0.98,0.02), xycoords='axes fraction',
+                 va='bottom', ha='right')
     ax1.grid(True)
     ax2.grid(True)
     fig.tight_layout()
@@ -238,6 +243,9 @@ def calc_F_rM(moment, height, width, I, hd, positive_bending=True):
     :width: width of the cross-section
     :I: moment of inertia
     :hd: diameter of the hole (if circular)
+    :positive_bending: bool. Defines whether the rod is inserted in a bending-tensile zone
+        (True) or in a bending-compressive zone (False). This will modify the integration
+        limits accordingly.
 
     :returns: float
 
