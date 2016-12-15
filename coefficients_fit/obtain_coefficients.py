@@ -72,7 +72,7 @@ def obtain_coefficients():
     c1, c2, c3 = res_coeffs.x
     print('+----------------------------------')
     print('Coefficients found:')
-    print('c1 = {c1:2.3f}; \nc2 = {c2:2.3f} \nc3 = {c3:2.3f}'.format(
+    print('c1 = {c1:2.3f} \nc2 = {c2:2.3f} \nc3 = {c3:2.3f}'.format(
             c1=c1, c2=c2, c3=c3) )
     print('+----------------------------------')
 
@@ -117,11 +117,16 @@ def obtain_coefficients():
                         d=diam, w=w, beta=angles, c1=c1, c2=c2, c3=c3)
         R_n_2 = calc_Rn(F_V=F_rV, F_M=F_rM_2, Ft90=F_t90_2,
                         d=diam, w=w, beta=angles, c1=c1, c2=c2, c3=c3)
+        # define labels
+        label_1 = "$d_r$={dr:1.0f}; w={w:1.0f} - FE".format(
+                dr=diam, w=w )
+        label_2 = "$d_r$={dr:1.0f}; w={w:1.0f} - fitted".format(
+                dr=diam, w=w )
         # Plot the FE results 
-        ax1.plot(F_rod_1*1e-3, color=col_pal[2*(ix)], ls='none', marker='o')
+        ax1.plot(F_rod_1*1e-3, color=col_pal[2*(ix)], ls='none', marker='o', label=label_1)
         ax2.plot(F_rod_2*1e-3, color=col_pal[2*(ix)], ls='none', marker='o')
         # Plot the results from the formula
-        ax1.plot(angles, R_n_1*1e-3, color=col_pal[2*(ix)+1])
+        ax1.plot(angles, R_n_1*1e-3, color=col_pal[2*(ix)+1], label=label_2)
         ax2.plot(angles, R_n_2*1e-3, color=col_pal[2*(ix)+1])
 
     ax1.set_ylim(ymin=0)
@@ -133,6 +138,7 @@ def obtain_coefficients():
                  va='bottom', ha='right')
     ax2.annotate('Right rod', xy=(0.98,0.02), xycoords='axes fraction',
                  va='bottom', ha='right')
+    ax1.legend(loc='upper left', fontsize=8)
     ax1.grid(True)
     ax2.grid(True)
     fig.tight_layout()
