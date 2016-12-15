@@ -22,7 +22,7 @@ The files contained in this repository are listed below:
 To use the code listed above, the following tools must be installed:
 - python >= 3.3
     - numpy
-    - simpy
+    - sympy
     - jupyter
 
 ### Abstract:
