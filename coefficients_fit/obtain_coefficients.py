@@ -112,9 +112,9 @@ def obtain_coefficients():
         ##################################################
         # Calculate the axial forces in the rod
         ##################################################
-        R_n_1 = calc_Rn(F_V=F_rV, F_M=F_rM_1, Ft90=F_t90_1,
+        R_n_1 = calc_Rn(F_rV=F_rV, F_rM=F_rM_1, Ft90=F_t90_1,
                         d=diam, w=w, beta=angles, c1=c1, c2=c2, c3=c3)
-        R_n_2 = calc_Rn(F_V=F_rV, F_M=F_rM_2, Ft90=F_t90_2,
+        R_n_2 = calc_Rn(F_rV=F_rV, F_rM=F_rM_2, Ft90=F_t90_2,
                         d=diam, w=w, beta=angles, c1=c1, c2=c2, c3=c3)
         # define labels
         label_1 = "$d_r$={dr:1.0f}; w={w:1.0f} - FE".format(
@@ -193,9 +193,9 @@ def find_coefficients(coeffs, list_configurations, shear_force, moment1, moment2
         ##################################################
         # Calculate the axial forces in the rod
         ##################################################
-        R_n_1 = calc_Rn(F_V=F_rV_aux, F_M=F_rM_aux, Ft90=F_t90_aux,
+        R_n_1 = calc_Rn(F_rV=F_rV_aux, F_rM=F_rM_aux, Ft90=F_t90_aux,
                         d=diam, w=w, beta=angles, c1=c1, c2=c2, c3=c3)
-        R_n_2 = calc_Rn(F_V=F_rV_aux, F_M=F_rM_aux2, Ft90=F_t90_aux2,
+        R_n_2 = calc_Rn(F_rV=F_rV_aux, F_rM=F_rM_aux2, Ft90=F_t90_aux2,
                         d=diam, w=w, beta=angles, c1=c1, c2=c2, c3=c3)
         # compare against the FE results
         diff_aux = (R_n_1 - config['data']['F_norm_1'])**2
@@ -277,12 +277,12 @@ def calc_F_rM(moment, height, width, I, hd, positive_bending=True):
 
     return F_rM
 
-def calc_Rn(F_V, F_M, Ft90, c1, c2, c3, beta, d, w):
+def calc_Rn(F_rV, F_rM, Ft90, c1, c2, c3, beta, d, w):
     """
     Calculate the axial force in the reinforcement
 
-    :F_V: portion of the force associated with the shear force
-    :F_M: portion of the force associated to the moment
+    :F_rV: portion of the force associated with the shear force
+    :F_rM: portion of the force associated to the moment
     :Ft90: vertical tensile force acc. to German National Annex to EN 1995-1-1
     :beta: inclination of the reinforcement (in degrees). beta = 0° --> vertical position
     :c1: coefficient c1
@@ -298,7 +298,7 @@ def calc_Rn(F_V, F_M, Ft90, c1, c2, c3, beta, d, w):
     cos_B = np.cos( np.radians(beta) )
     sin_B = np.sin( np.radians(beta) )
     # Apply equation (4)
-    R_n = ( (F_V * c1 + F_M * c2 ) * sin_B * np.sqrt(d/w) + Ft90 * c3 * d/np.sqrt(w) ) / cos_B
+    R_n = ( (F_rV * c1 + F_rM * c2 ) * sin_B * np.sqrt(d/w) + Ft90 * c3 * d/np.sqrt(w) ) / cos_B
 
     return R_n
 
